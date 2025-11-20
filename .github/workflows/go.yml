@@ -29,7 +29,7 @@ jobs:
     - name: Build Static EXE
       shell: msys2 {0}
       run: |
-        go build -v -ldflags "-linkmode external -extldflags '-static'" -o visualizer.exe app.go
+        go build -v -ldflags "-linkmode external -extldflags '-static -lwinmm -lole32 -lsetupapi -luuid'" -o visualizer.exe app.go
 
     - name: Upload Release
       if: github.ref == 'refs/heads/main' && github.event_name == 'push'
