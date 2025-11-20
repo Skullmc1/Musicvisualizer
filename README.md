@@ -2,7 +2,7 @@
 
 ![Visualizer](image.png)
 
-A terminal-based music visualizer written in Go, featuring a reactive spectrum analyzer, media title detection, and a clock.
+I made this cause i wanted to stare at something when i'm studying but also can't concentrate. Made it like this cause TUI has been getting some hype.
 
 ## 1. System Requirements
 You need the **PortAudio** C library installed on your system.
