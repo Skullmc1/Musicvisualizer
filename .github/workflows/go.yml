@@ -9,6 +9,10 @@ on:
 jobs:
   build-windows:
     runs-on: windows-latest
+
+    # 1. FIX: Grant permission to write releases
+    permissions:
+      contents: write
     
     steps:
     - uses: actions/checkout@v4
@@ -33,11 +37,12 @@ jobs:
 
     - name: Upload Release
       if: github.ref == 'refs/heads/main' && github.event_name == 'push'
-      uses: softprops/action-gh-release@v1
+      # 2. FIX: Switched to v2 and removed invalid 'overwrite' input
+      uses: softprops/action-gh-release@v2
       with:
         tag_name: latest
         name: Latest Windows Build
         files: visualizer.exe
         draft: false
         prerelease: false
-        overwrite: true
+        make_latest: true
